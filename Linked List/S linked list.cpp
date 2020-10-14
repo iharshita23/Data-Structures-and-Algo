@@ -1,4 +1,6 @@
-//WAP of LL with insertion, deletion, del LL, get nth node of LL, Lsearch of LL//
+//P of LL with insertion, deletion, del LL, get nth node of LL, Lsearch of LL//
+//Func() used are LLprint that prints LL, LLPush Push Node at begin, LLinsert insert node at specific index specific data provided correct(not out of scope to LL)
+//LLDelete Del the entire LL, LLsearch Linearly Search Node provided proper Data return -1 if not found, LLGetLen return Length of LL
 #include<bits/stdc++.h>
 using namespace std;
 class Nodelist
