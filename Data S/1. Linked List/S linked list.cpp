@@ -69,6 +69,15 @@ if(p->next==NULL){return count+1;}
 while(p->next!=NULL){count++;p=p->next;}
 }
 }
+void LLReverse(Nodelist** Head){
+Nodelist* p=*Head;Nodelist *q;
+q=p->next;
+
+
+
+}
+
+
 
 int main(){
 Nodelist* Head=NULL;
