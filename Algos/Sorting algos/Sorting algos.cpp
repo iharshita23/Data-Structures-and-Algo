@@ -30,7 +30,7 @@ int key;
 for(int i=1;i<sze;i++){
     key=arr[i];
         for (int j=i-1;j>=0&&j<sze;j--){
-            if (arr[j]>arr[j+1]){Arrswap(arr,j,j+1);s}
+            if (arr[j]>arr[j+1]){Arrswap(arr,j,j+1);}
             else break;
         }
 
@@ -41,7 +41,7 @@ for(int i=1;i<sze;i++){
 
 
 int main(){
-int arr[]={88,77,66,55,44,33,22,11,2};
+int arr[]={12,11,13,5,6};
 int sz= sizeof(arr)/sizeof(arr[0]);
 InsertionSort(arr,sz);
 cout<<"Sorted array by SelectionS algo"<<endl;
