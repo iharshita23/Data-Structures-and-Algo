@@ -1,8 +1,43 @@
-/* Here are some Sorting algos  */
-/*Tc of Selection sort is  */
 #include<bits/stdc++.h>
 using namespace std;
+void MergeArr(int arr[], int l, int m, int r){
+    int n1 = m - l + 1;
+    int n2 = r - m;
+    int L[n1], R[n2];
+    for(int i = 0; i < n1; i++)
+        L[i] = arr[l + i];
+    for(int j = 0; j < n2; j++)
+        R[j] = arr[m + 1 + j];
+int i = 0;int j = 0;
+    int k = l;
+    while (i < n1 && j < n2)
+    {if (L[i] <= R[j])
+        {arr[k] = L[i];i++;}
+        else
+        {arr[k] = R[j];
+            j++;}
+        k++;
+    }
+    while (i < n1)
+    {
+        arr[k] = L[i];
+        i++;k++;
+    }
+    while (j < n2)
+    {
+        arr[k] = R[j];
+        j++;k++;
+    }
+}
+void MergeSort(int arr[],int le , int ri){
+    if(le<ri){
+        int mid= le+ (ri-le)/2;
+        MergeSort(arr,le, mid);
+        MergeSort(arr, mid+1, ri);
+        MergeArr(arr,le,mid,ri);}
 
+
+}
 void Arrswap(int arr[],int index1, int index2){ //0-indexing
 int temp;
 temp=arr[index1];
@@ -38,18 +73,15 @@ for(int i=1;i<sze;i++){
 
 
     }
-
-
+void printArray(int A[], int size){
+    for(int i = 0; i < size; i++)
+        cout << A[i] << " ";}
 int main(){
 int arr[]={12,11,13,5,6};
 int sz= sizeof(arr)/sizeof(arr[0]);
-InsertionSort(arr,sz);
+MergeSort(arr,0,sz-1);
 cout<<"Sorted array by SelectionS algo"<<endl;
-
-for(auto x: arr){
-    cout<<x<<"  ";
-}cout<< endl;
-
+printArray(arr,sz);
 
 
 return 0;}
