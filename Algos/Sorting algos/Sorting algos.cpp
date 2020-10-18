@@ -1,5 +1,41 @@
 #include<bits/stdc++.h>
 using namespace std;
+void printArray(int A[], int size){
+    for(int i = 0; i < size; i++)
+        cout << A[i] << " ";}
+void Arrswap(int arr[],int index1, int index2){ //0-indexing
+int temp;
+temp=arr[index1];
+arr[index1]=arr[index2];
+arr[index2]=temp;
+}
+void Swap(int* a, int* b){
+    int t = *a;
+    *a = *b;
+    *b = t;
+}
+
+
+
+
+
+int Pindex(int arr[],int start, int finish){
+int pivotindex =start;
+for (int i=0;i<=(finish-start-1);i++){
+    if(arr[start+i]<arr[finish]) {Swap(&arr[start+i] , &arr[pivotindex] ); pivotindex++; }
+
+} Swap(&arr[pivotindex], &arr[finish] );
+
+return pivotindex;}
+void QuickSort(int arr[],int strt, int ed){
+if (ed>strt){
+    int Index=Pindex(arr,strt,ed);
+    QuickSort(arr,strt,Index-1);
+    QuickSort(arr, Index+1, ed);
+
+}
+
+}
 void MergeArr(int arr[], int l, int m, int r){
     int n1 = m - l + 1;
     int n2 = r - m;
@@ -38,12 +74,6 @@ void MergeSort(int arr[],int le , int ri){
 
 
 }
-void Arrswap(int arr[],int index1, int index2){ //0-indexing
-int temp;
-temp=arr[index1];
-arr[index1]=arr[index2];
-arr[index2]=temp;
-}
 void SelectionSort(int arr[],int sze){ /*Tc of Selection sort is O(n^2) */
 int minindex;
 for(int i=0;i<sze;i++){
@@ -73,13 +103,10 @@ for(int i=1;i<sze;i++){
 
 
     }
-void printArray(int A[], int size){
-    for(int i = 0; i < size; i++)
-        cout << A[i] << " ";}
 int main(){
 int arr[]={12,11,13,5,6};
 int sz= sizeof(arr)/sizeof(arr[0]);
-MergeSort(arr,0,sz-1);
+QuickSort(arr,0,sz-1);
 cout<<"Sorted array by SelectionS algo"<<endl;
 printArray(arr,sz);
 
